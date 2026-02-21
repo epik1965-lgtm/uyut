@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Премиум Отель | Комфорт и Яркость</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>ГРАНД УЮТ | Премиум Отель</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Сброс стилей */
+        /* Сброс стилей и базовые настройки */
         * {
             margin: 0;
             padding: 0;
@@ -15,14 +15,12 @@
         }
 
         :root {
-            --primary-dark: #1A1A2E;
-            --primary-blue: #16213E;
-            --accent-color: #FF6B6B;
-            --accent-hover: #FF4757;
-            --light-bg: #F7F9FC;
+            --primary-dark: #111111;
+            --primary-gray: #222222;
+            --light-bg: #FAFAFA;
             --text-dark: #333333;
             --text-light: #FFFFFF;
-            --gold: #FCA311;
+            --gold: #D4AF37; /* Более благородный, приглушенный золотой */
         }
 
         body {
@@ -30,12 +28,13 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Анимация при скролле */
+        /* Плавные анимации появления */
         .fade-up {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
@@ -44,14 +43,13 @@
             transform: translateY(0);
         }
 
-        /* Задержки для поочередного появления */
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
 
-        /* Навигация */
+        /* Навигация - строгая и минималистичная */
         header {
-            background-color: var(--primary-dark);
+            background-color: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(10px);
             padding: 20px 5%;
             display: flex;
             justify-content: space-between;
@@ -60,31 +58,35 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .logo {
             color: var(--text-light);
-            font-size: 28px;
-            font-weight: 800;
+            font-size: 24px;
+            font-weight: 700;
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .logo span {
-            color: var(--accent-color);
+            color: var(--gold);
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 40px;
         }
 
         nav ul li a {
-            color: var(--text-light);
+            color: #CCCCCC;
             text-decoration: none;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: color 0.3s ease;
         }
 
@@ -93,392 +95,325 @@
         }
 
         .btn-book-header {
-            background-color: var(--accent-color);
-            color: var(--text-light);
-            padding: 12px 25px;
-            border-radius: 30px;
+            background-color: transparent;
+            color: var(--gold);
+            padding: 10px 24px;
+            border: 1px solid var(--gold);
+            border-radius: 2px;
             text-decoration: none;
-            font-weight: 800;
-            transition: background 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
         .btn-book-header:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+            background-color: var(--gold);
+            color: var(--primary-dark);
         }
 
-        /* Главный экран (Hero) */
+        /* Главный экран */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.9)), url('hero-bg.jpg') center/cover;
+            background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.8)), url('hero-bg.jpg') center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            margin-top: 0;
         }
 
         .hero h1 {
             color: var(--text-light);
-            font-size: 60px;
-            font-weight: 800;
+            font-size: 54px;
+            font-weight: 700;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
             max-width: 900px;
         }
 
-        .hero h1 span {
-            color: var(--gold);
-        }
-
         .hero p {
-            color: #E0E0E0;
-            font-size: 22px;
+            color: #BBBBBB;
+            font-size: 18px;
             margin-bottom: 40px;
-            max-width: 700px;
+            max-width: 600px;
+            font-weight: 400;
         }
 
         .btn-main {
             background-color: var(--gold);
             color: var(--primary-dark);
-            padding: 18px 45px;
-            font-size: 20px;
-            border-radius: 50px;
+            padding: 16px 40px;
+            font-size: 16px;
+            border-radius: 2px;
             text-decoration: none;
-            font-weight: 800;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(252, 163, 17, 0.5);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
         }
 
         .btn-main:hover {
-            background-color: #FFB732;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(252, 163, 17, 0.7);
+            background-color: #E6C553;
         }
 
         /* Общие стили секций */
         .section-padding {
-            padding: 100px 5%;
+            padding: 120px 5%;
         }
 
         .section-title {
-            font-size: 40px;
+            font-size: 36px;
             color: var(--primary-dark);
             margin-bottom: 60px;
-            font-weight: 800;
-            position: relative;
-            display: inline-block;
+            font-weight: 700;
             text-align: center;
-            width: 100%;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 4px;
-            background-color: var(--accent-color);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        /* Блок О гостинице */
-        .about-section {
-            background-color: #ffffff;
-            position: relative;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-bottom: 60px;
-            background: var(--primary-blue);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-number {
-            font-size: 65px;
-            font-weight: 800;
-            color: var(--gold);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .stat-text {
-            color: var(--text-light);
-            font-size: 14px;
-            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
-            align-items: center;
+        /* Блок О гостинице (Минимализм) */
+        .about-section {
+            background-color: #FFFFFF;
         }
 
-        .about-image-wrapper {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .about-image-wrapper img {
             width: 100%;
             height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-image-wrapper:hover img {
-            transform: scale(1.05);
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
         }
 
         .about-text h3 {
             font-size: 28px;
             color: var(--primary-dark);
-            margin-bottom: 20px;
-            font-weight: 800;
+            margin-bottom: 24px;
+            font-weight: 700;
         }
 
         .about-text p {
-            color: #555;
-            font-size: 17px;
+            color: #666666;
+            font-size: 16px;
             margin-bottom: 20px;
             line-height: 1.8;
         }
 
-        .social-buttons {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .social-btn {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .btn-wa {
-            background-color: #25D366;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-        }
-
-        .btn-vk {
-            background-color: #0077FF;
-            box-shadow: 0 5px 15px rgba(0, 119, 255, 0.4);
-        }
-
-        .social-btn:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.1);
-        }
-
-        /* Преимущества */
-        .features {
+        /* Инфраструктура (Услуги) */
+        .services {
             background-color: var(--light-bg);
         }
 
-        .features-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .feature-card {
-            background: #ffffff;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .service-card {
             position: relative;
+            height: 450px;
+            border-radius: 4px;
             overflow: hidden;
-            border-bottom: 5px solid var(--accent-color);
-            text-align: center;
+            cursor: pointer;
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        .service-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.7s ease;
+            background-color: var(--primary-gray);
         }
 
-        .feature-icon {
-            font-size: 50px;
-            margin-bottom: 20px;
+        .service-card:hover .service-bg {
+            transform: scale(1.05);
         }
 
-        .feature-card h3 {
-            font-size: 24px;
-            color: var(--primary-blue);
-            margin-bottom: 15px;
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(17,17,17,0.9) 100%);
         }
 
-        .feature-card p {
-            color: #666;
-            font-size: 16px;
-        }
-
-        /* Номера */
-        .rooms {
-            background-color: var(--primary-blue);
-        }
-
-        .rooms .section-title {
+        .service-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 30px;
             color: var(--text-light);
+        }
+
+        .service-content h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .service-content p {
+            font-size: 15px;
+            color: #CCCCCC;
+            line-height: 1.6;
+        }
+
+        .srv-1 { background-image: url('cafe.jpg'); }
+        .srv-2 { background-image: url('gym.jpg'); }
+        .srv-3 { background-image: url('baths.jpg'); }
+
+        /* Номера - Лаконичный стиль */
+        .rooms {
+            background-color: #FFFFFF;
         }
 
         .rooms-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .room-card {
-            background: #ffffff;
-            border-radius: 20px;
+            background: var(--light-bg);
+            border-radius: 4px;
             overflow: hidden;
-            text-align: left;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
+            border: 1px solid #EEEEEE;
+            transition: box-shadow 0.3s ease;
         }
 
         .room-card:hover {
-            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
         }
 
         .room-img {
             width: 100%;
-            height: 250px;
-            background-color: #ddd;
+            height: 300px;
+            background-color: #EAEAEA;
             background-position: center;
             background-size: cover;
         }
 
         .img-1 { background-image: url('room-1.jpg'); }
-        .img-2 { background-image: url('room-2.jpg'); }
-        .img-3 { background-image: url('room-3.jpg'); }
+        .img-2 { background-image: url('room-family.jpg'); }
 
         .room-info {
-            padding: 30px;
+            padding: 40px;
         }
 
         .room-title {
-            font-size: 26px;
+            font-size: 24px;
             color: var(--primary-dark);
-            margin-bottom: 10px;
-            font-weight: 800;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
         .room-price {
-            font-size: 22px;
-            color: var(--accent-color);
-            font-weight: 800;
-            margin-bottom: 15px;
+            font-size: 18px;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 20px;
         }
 
         .room-desc {
-            color: #666;
-            margin-bottom: 25px;
+            color: #666666;
+            margin-bottom: 30px;
             font-size: 15px;
+            line-height: 1.7;
         }
 
         .btn-book-room {
-            display: block;
-            text-align: center;
-            background-color: var(--primary-dark);
-            color: var(--text-light);
-            padding: 15px;
-            border-radius: 10px;
+            display: inline-block;
+            background-color: transparent;
+            color: var(--primary-dark);
+            padding: 12px 30px;
+            border: 1px solid var(--primary-dark);
+            border-radius: 2px;
             text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
         .btn-book-room:hover {
-            background-color: var(--accent-color);
+            background-color: var(--primary-dark);
+            color: var(--text-light);
         }
 
         /* Футер */
         footer {
             background-color: var(--primary-dark);
-            color: var(--text-light);
-            padding: 60px 5% 30px;
+            color: #999999;
+            padding: 80px 5% 40px;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-bottom: 40px;
+            max-width: 1200px;
+            margin: 0 auto 60px;
         }
 
         .footer-col h4 {
-            font-size: 22px;
-            color: var(--gold);
-            margin-bottom: 20px;
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .footer-col p {
-            color: #ccc;
-            margin-bottom: 10px;
-            font-size: 16px;
+            margin-bottom: 12px;
+            font-size: 15px;
         }
 
         .footer-col a {
-            color: #ccc;
+            color: var(--gold);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: opacity 0.3s;
         }
 
         .footer-col a:hover {
-            color: var(--accent-color);
+            opacity: 0.8;
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            color: #888;
+            font-size: 14px;
         }
 
         /* Адаптивность для мобильных */
         @media (max-width: 768px) {
             nav ul { display: none; }
-            .hero h1 { font-size: 40px; }
-            .hero p { font-size: 18px; }
-            .about-content { grid-template-columns: 1fr; }
-            .stats-container { flex-direction: column; gap: 30px; }
+            .hero h1 { font-size: 36px; }
+            .about-content { grid-template-columns: 1fr; gap: 40px; }
+            .rooms-grid { grid-template-columns: 1fr; }
+            .section-padding { padding: 80px 20px; }
         }
     </style>
 </head>
@@ -489,124 +424,89 @@
         <nav>
             <ul>
                 <li><a href="#about">О нас</a></li>
-                <li><a href="#features">Преимущества</a></li>
+                <li><a href="#services">Инфраструктура</a></li>
                 <li><a href="#rooms">Номера</a></li>
-                <li><a href="#contacts">Контакты</a></li>
             </ul>
         </nav>
         <a href="#rooms" class="btn-book-header">Забронировать</a>
     </header>
 
     <section class="hero">
-        <h1 class="fade-up">Ваш идеальный отдых <span>начинается здесь</span></h1>
-        <p class="fade-up delay-1">Забудьте о стандартах. Погрузитесь в атмосферу абсолютного комфорта, современного дизайна и безупречного сервиса.</p>
-        <a href="#rooms" class="btn-main fade-up delay-2">Выбрать лучший номер</a>
+        <h1 class="fade-up">Оазис комфорта в вашей поездке</h1>
+        <p class="fade-up delay-1">Безупречный сервис, современный дизайн и продуманная инфраструктура для отдыха и бизнеса.</p>
+        <a href="#rooms" class="btn-main fade-up delay-2">Выбрать номер</a>
     </section>
 
     <section id="about" class="section-padding about-section">
-        <h2 class="section-title fade-up">О гостинице Уют</h2>
-        
-        <div class="stats-container fade-up delay-1">
-            <div class="stat-item">
-                <div class="stat-number">14</div>
-                <div class="stat-text">лет эталонного сервиса</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">29</div>
-                <div class="stat-text">премиальных номеров</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">99%</div>
-                <div class="stat-text">довольных гостей</div>
-            </div>
-        </div>
-
         <div class="about-content">
-            <div class="about-image-wrapper fade-up delay-2">
-                <img src="about.jpg" alt="Интерьер гостиницы">
+            <div class="about-text fade-up">
+                <h3>Идеальное расположение и комфорт</h3>
+                <p>Мы находимся прямо у въезда в город, в нескольких минутах от федеральной трассы <strong>Белгород - Павловск</strong>. Это делает нас идеальной точкой как для транзитных путешественников, так и для деловых людей.</p>
+                <p><strong>ГРАНД УЮТ</strong> — это больше, чем просто отель. Мы создали полноценное пространство: стильное лофт-кафе для утреннего кофе, современный тренажерный зал и банный комплекс для вечернего релакса.</p>
             </div>
-            <div class="about-text fade-up delay-3">
-                <h3>Оазис комфорта в любой поездке</h3>
-                <p><strong>ГРАНД УЮТ</strong> — это не просто место для ночлега. Это пространство, где каждый гость чувствует себя VIP-персоной, находясь в атмосфере домашнего тепла и спокойствия.</p>
-                <p>Мы стратегически удобно расположены прямо у въезда в город, всего в паре минут от федеральной трассы <strong>Белгород - Павловск</strong>. Это делает нас идеальной точкой как для транзитных путешественников, так и для деловых людей, которым важна логистика и быстрый доступ в центр города.</p>
-                <p>В каждом номере вас ждут белоснежное хрустящее белье, идеальная чистота и продуманный до мелочей дизайн. Отдыхайте с удовольствием.</p>
-                
-                <div class="social-buttons">
-                    <a href="#" class="social-btn btn-wa">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
-                        WhatsApp
-                    </a>
-                    <a href="#" class="social-btn btn-vk">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M15.077 7.027c.437 0 .684.025.922.083.504.113.844.53 1.01 1.026.06.18.067.433.067 1.378v2.469c0 1.05-.008 1.189-.088 1.41-.147.414-.492.74-.917.868-.21.063-.526.082-1.353.082H14.1c-1.258 0-1.503-.024-1.745-.164-.265-.152-.52-.45-.635-.742-.045-.116-.096-.345-.143-.64-.044-.27-.087-.433-.146-.548-.124-.241-.334-.41-.58-.466-.188-.043-.45-.008-.68.088-.323.136-.59.397-.733.72-.093.207-.123.447-.123.95v1.278c0 .87-.008.972-.072 1.155-.13.376-.432.65-.826.75-.19.048-.483.058-2.176.058-2.603 0-3.32-.142-4.437-.88-1.528-1.009-2.73-2.673-3.69-5.118-.328-.838-.567-1.638-.857-2.87-.1-.424-.122-.647-.122-1.242 0-.486.006-.613.04-.768.12-.556.55-1.026 1.114-1.22.193-.066.386-.076 1.488-.076h1.228c.453 0 .584.017.768.102.327.15.586.442.705.793.045.133.08.305.158.784.156.963.42 1.834.78 2.58.12.247.37.587.545.742.277.246.612.336.963.26.242-.054.41-.168.55-.373.167-.245.26-.645.29-1.265.01-.2.01-1.135-.004-1.392-.04-.617-.184-1.02-.456-1.284-.175-.17-.4-.28-.68-.337l-.234-.047.094-.17c.214-.386.608-.64 1.05-.68.196-.017 2.565-.017 2.822 0 .524.035.918.23 1.135.565.136.21.196.486.223 1.036.024.492.022 1.848-.004 2.128-.04.428-.152.735-.353 1.002-.192.253-.42.42-.7.51-.256.082-.236.066.195.348.163.106.398.283.525.39.5.427.973.992 1.258 1.503.117.21.282.593.355.823.088.277.085.228.085-1.516v-1.12c0-.528.016-.7.078-.852.124-.302.373-.556.666-.677.164-.067.248-.08 1.002-.107l.808-.027z"/></svg>
-                        ВКонтакте
-                    </a>
-                </div>
+            <div class="about-image-wrapper fade-up delay-1">
+                <img src="about.jpg" alt="Интерьер гостиницы">
             </div>
         </div>
     </section>
 
-    <section id="features" class="section-padding features">
-        <h2 class="section-title fade-up">Почему выбирают нас</h2>
-        <div class="features-grid">
-            <div class="feature-card fade-up delay-1">
-                <div class="feature-icon">✨</div>
-                <h3>Новый формат</h3>
-                <p>Свежий, современный ремонт и продуманный до мелочей дизайн, который радует глаз и создает настроение.</p>
+    <section id="services" class="section-padding services">
+        <h2 class="section-title fade-up">Инфраструктура</h2>
+        <div class="services-grid">
+            <div class="service-card fade-up">
+                <div class="service-bg srv-1"></div>
+                <div class="service-overlay"></div>
+                <div class="service-content">
+                    <h3>Лофт-Кафе</h3>
+                    <p>Атмосферное место с панорамными окнами для завтраков, деловых встреч или спокойного ужина.</p>
+                </div>
             </div>
-            <div class="feature-card fade-up delay-2">
-                <div class="feature-icon">🛏️</div>
-                <h3>Премиум комфорт</h3>
-                <p>Ортопедические матрасы, белоснежное белье и идеальная чистота в каждом номере нашей гостиницы.</p>
+            <div class="service-card fade-up delay-1">
+                <div class="service-bg srv-2"></div>
+                <div class="service-overlay"></div>
+                <div class="service-content">
+                    <h3>Тренажерный Зал</h3>
+                    <p>Профессиональное оборудование, зона свободных весов и кардио для поддержания формы в поездке.</p>
+                </div>
             </div>
-            <div class="feature-card fade-up delay-3">
-                <div class="feature-icon">📍</div>
-                <h3>В центре событий</h3>
-                <p>Удобное расположение, парковка и быстрый доступ ко всем ключевым точкам города.</p>
+            <div class="service-card fade-up delay-2">
+                <div class="service-bg srv-3"></div>
+                <div class="service-overlay"></div>
+                <div class="service-content">
+                    <h3>Банный Комплекс</h3>
+                    <p>Просторные парные, купель и уютная мангальная зона с беседкой для полноценного отдыха.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="rooms" class="section-padding rooms">
-        <h2 class="section-title fade-up">Наши номера</h2>
+        <h2 class="section-title fade-up">Размещение</h2>
         <div class="rooms-grid">
-            <div class="room-card fade-up delay-1">
+            <div class="room-card fade-up">
                 <div class="room-img img-1"></div>
                 <div class="room-info">
                     <h3 class="room-title">Стандарт Комфорт</h3>
                     <div class="room-price">от 2 500 ₽ / сутки</div>
-                    <p class="room-desc">Идеальный баланс цены и качества. Просторная кровать, рабочая зона, скоростной Wi-Fi и ванная комната с тропическим душем.</p>
-                    <a href="#contacts" class="btn-book-room">Забронировать сейчас</a>
+                    <p class="room-desc">Уютный номер с продуманной эргономикой. Рабочая зона, скоростной Wi-Fi, белоснежное белье и собственная ванная комната для комфортного отдыха.</p>
+                    <a href="#contacts" class="btn-book-room">Забронировать</a>
                 </div>
             </div>
 
-            <div class="room-card fade-up delay-2">
+            <div class="room-card fade-up delay-1">
                 <div class="room-img img-2"></div>
                 <div class="room-info">
-                    <h3 class="room-title">Бизнес Студия</h3>
-                    <div class="room-price">от 3 800 ₽ / сутки</div>
-                    <p class="room-desc">Улучшенный номер с панорамными окнами. Дополнительная зона отдыха, кофемашина и премиальная косметика.</p>
-                    <a href="#contacts" class="btn-book-room">Забронировать сейчас</a>
-                </div>
-            </div>
-
-            <div class="room-card fade-up delay-3">
-                <div class="room-img img-3"></div>
-                <div class="room-info">
-                    <h3 class="room-title">Президентский Люкс</h3>
-                    <div class="room-price">от 6 000 ₽ / сутки</div>
-                    <p class="room-desc">Максимум пространства и роскоши. Двухкомнатный номер с огромной King-size кроватью, джакузи и эксклюзивным обслуживанием.</p>
-                    <a href="#contacts" class="btn-book-room">Забронировать сейчас</a>
+                    <h3 class="room-title">Семейный Люкс с кухней</h3>
+                    <div class="room-price">от 4 500 ₽ / сутки</div>
+                    <p class="room-desc">Просторный номер с современным ремонтом под мрамор. Оборудованная кухонная зона, стильная мебель и максимум пространства для длительного проживания.</p>
+                    <a href="#contacts" class="btn-book-room">Забронировать</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contacts" class="fade-up">
+    <footer id="contacts">
         <div class="footer-content">
-            <div class="footer-col">
-                <h4>ГРАНД УЮТ</h4>
-                <p>Мы переосмыслили понятие гостеприимства. Ваш отдых — наш главный приоритет.</p>
-            </div>
             <div class="footer-col">
                 <h4>Контакты</h4>
                 <p>📍 ул. Идеальная, 1, Центр</p>
@@ -615,17 +515,21 @@
             </div>
             <div class="footer-col">
                 <h4>Режим работы</h4>
-                <p>Круглосуточное заселение</p>
-                <p>Без выходных и перерывов</p>
+                <p>Круглосуточное заселение 24/7</p>
+                <p>Охраняемая парковка на территории</p>
+            </div>
+            <div class="footer-col">
+                <h4>Мессенджеры</h4>
+                <p><a href="#">Написать в WhatsApp</a></p>
+                <p><a href="#">Группа ВКонтакте</a></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Гранд Уют. Все права защищены. Сайт создан для абсолютного лидерства.</p>
+            <p>&copy; 2026 ГРАНД УЮТ. Все права защищены.</p>
         </div>
     </footer>
 
     <script>
-        // Плавная прокрутка меню
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -635,7 +539,6 @@
             });
         });
 
-        // Анимация появления элементов при скролле (Intersection Observer)
         const observerOptions = {
             threshold: 0.15,
             rootMargin: "0px 0px -50px 0px"
@@ -645,7 +548,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Перестаем следить за элементом после того как он появился
                     observer.unobserve(entry.target);
                 }
             });
