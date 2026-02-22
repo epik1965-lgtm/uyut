@@ -16,14 +16,15 @@
         :root {
             --bg-white: #FFFFFF;
             --bg-light: #F9FAFB;
-            --text-dark: #1F2937;
-            --text-muted: #6B7280;
-            --accent-green: #10B981; /* Более благородный изумрудный зеленый */
+            --bg-blue-tint: #F3F6F9; /* Очень легкий, свежий голубой оттенок для блоков */
+            --text-dark: #111827;
+            --text-muted: #4B5563;
+            --accent-green: #10B981; 
             --accent-hover: #059669;
             --border-color: #E5E7EB;
             --font-heading: 'Lora', serif;
             --font-text: 'Montserrat', sans-serif;
-            --shadow-soft: 0 12px 40px rgba(0,0,0,0.06);
+            --shadow-soft: 0 12px 40px rgba(0,0,0,0.04);
             --shadow-card: 0 4px 6px rgba(0,0,0,0.02), 0 10px 15px rgba(0,0,0,0.03);
             --star-color: #F59E0B;
             --radius-large: 16px;
@@ -116,10 +117,11 @@
             box-shadow: 0 6px 15px rgba(16, 185, 129, 0.3);
         }
 
-        /* Главный экран */
+        /* Главный экран - Решение проблемы с читаемостью */
         .hero {
             height: 90vh;
-            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.95)), url('hero-bg.jpg') center/cover;
+            /* Сделали градиент гораздо плотнее (от 80% до 100% белого), чтобы текст читался идеально */
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1)), url('hero-bg.jpg') center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -195,7 +197,7 @@
             font-family: var(--font-text);
             outline: none;
             background: var(--bg-light);
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, background 0.3s;
         }
 
         .widget-group select:focus,
@@ -329,7 +331,7 @@
 
         /* Инфраструктура */
         .services {
-            background-color: var(--bg-light);
+            background-color: var(--bg-blue-tint);
         }
 
         .services-grid {
@@ -395,6 +397,7 @@
             height: 100%;
             background-size: cover;
             background-position: center;
+            background-color: #EAEAEA;
         }
         .slider-btn {
             position: absolute;
@@ -575,7 +578,7 @@
 
         /* Отзывы */
         .reviews {
-            background-color: var(--bg-light);
+            background-color: var(--bg-blue-tint);
         }
 
         .rating-summary {
@@ -775,21 +778,27 @@
             width: 100%;
         }
 
-        /* Адаптивность */
+        /* Адаптивность для мобильных устройств */
         @media (max-width: 900px) {
             .rooms-grid { grid-template-columns: 1fr; }
             .room-card-featured { grid-template-columns: 1fr; }
-            .room-card-featured .room-img-container { height: 320px; border-radius: var(--radius-large) var(--radius-large) 0 0; }
+            .room-card-featured .room-img-container { height: 280px; border-radius: var(--radius-large) var(--radius-large) 0 0; }
             .stats-row { flex-direction: column; gap: 40px; }
             .about-content { grid-template-columns: 1fr; }
             .contacts-container { grid-template-columns: 1fr; gap: 30px; }
         }
         @media (max-width: 768px) {
             nav ul { display: none; }
-            .hero h1 { font-size: 40px; }
+            /* Уменьшаем шрифты на телефоне */
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 15px; }
+            .section-title { font-size: 32px; margin-bottom: 40px;}
             .amenities-grid { grid-template-columns: 1fr; }
-            .booking-widget { padding: 25px; }
+            .booking-widget { padding: 20px; }
             .footer-content { flex-direction: column; text-align: center; }
+            .room-img-container { height: 250px; }
+            .service-img-box { height: 220px; }
+            .btn-calc { height: auto; padding: 12px; }
         }
     </style>
 </head>
